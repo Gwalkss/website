@@ -1,0 +1,55 @@
+1.	Website on the local host
+2.	Create a new container, and upload files to this container from the website
+3. 	Create MySQL DB on Azure and make the local website to switch  database  from localhost to Azure
+4.	Create an Azure webapp and Deploy  the website using local Kudu.
+
+To view our localhost file we need to first create a database on Azure
+
+Goto Azure => Service => Databases => Azure Database for MySQL Services
+
+Add add to the same resource group change
+
+compute + storage (configure services)
+
+Click Basic
+
+reduce Vcore and reduce Storage
+
+Auto-growth choose No
+
+Click OK
+
+
+//To Access database copy Server name
+
+mysql -h <servername> -u <username> -p <password>
+
+Enter password: ********* Error msg
+
+Goto Azure Portal
+
+MySQL
+
+=> Settings => Connection Security
+
+Click  + Add ClientIP
+
+then Enforce SSL connection toggle to Disable
+
+Save
+
+//Create Database
+mysql > create database images
+mysql > use images; press enter
+mysql > create table names (
+				 -> name varchar(20));
+				 
+specify info in your code both index and list
+
+$servername = "........mysql.database.azure.com";
+$username = "**********";
+$password = " *********** ";
+$db = "images";
+
+
+
